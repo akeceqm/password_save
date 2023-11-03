@@ -60,6 +60,49 @@ def login_user(login, password):
         check_login()
 
 
+def check_variant_user_login():
+    print("Вы уверены?\nЕсли хотите вернуться введите 0\nЕсли хотите продолжить то введите 1")
+    resp = (input("Ввод: "))
+
+    while True:
+        if resp == "0":
+            user_logs_in_and_checks_database()
+        elif resp == "1":
+            login_user(login=input("Введите логин: "),
+                       password=input("Введите пароль: "))
+            break
+        else:
+            print("Вы вели некоректный ввод")
+            resp = (input("Ввод: "))
+            if resp == "0":
+                user_logs_in_and_checks_database()
+            elif resp == "1":
+                login_user(login=input("Введите логин: "),
+                           password=input("Введите пароль: "))
+
+                break
+
+
+def check_variant_register_user():
+    print("Вы уверены?\nЕсли хотите вернуться введите 0\nЕсли хотите продолжить то введите 1")
+    resp = (input("Ввод: "))
+
+    while True:
+        if resp == "0":
+            user_logs_in_and_checks_database()
+        elif resp == "1":
+            register_user()
+            break
+        else:
+            print("Вы вели некоректный ввод")
+            resp = (input("Ввод: "))
+            if resp == "0":
+                user_logs_in_and_checks_database()
+            elif resp == "1":
+                register_user()
+                break
+
+
 def user_logs_in_and_checks_database():
     print("У вас уже есть аккаунт? y/n")
     response = input("Ваш ответ: ")
@@ -67,11 +110,12 @@ def user_logs_in_and_checks_database():
     while True:
         if response == "y" or response == "n":
             if response == "y":
-                login_user(login=input("Введите логин: "),
-                           password=input("Введите пароль: "))
+                check_variant_user_login()
+
                 break
             else:
-                register_user()
+
+                check_variant_register_user()
                 break
         else:
             print("Введите корректный ответ!!!")
