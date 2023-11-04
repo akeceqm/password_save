@@ -14,7 +14,6 @@ id_generator = IdGenerator()
 
 
 def create_account(account_society, account_name, account_password):
-
     account_id = id_generator.get_new_id()
     global account_data
     account_data = {
@@ -24,6 +23,9 @@ def create_account(account_society, account_name, account_password):
     }
     
     list_account[account_id] = account_data
+
+    
+        
 
     if account_society=="":
         while True:
@@ -44,9 +46,14 @@ def create_account(account_society, account_name, account_password):
     
 
 
-def change_account(change_value):
+def change_account(change_value,account_society,account_name,account_password):
+    global account_data
     account_id = change_value
     list_account[account_id] = account_data
+    account = list_account[change_value]
+    account["society"] = account_society
+    account["username"] = account_name 
+    account["password"] = account_password
     print(list_account)
     if change_value not in list_account:
         print("Такого id не существует")

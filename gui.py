@@ -24,7 +24,7 @@ while True:
                                     account_password=input("Введите ваш пароль: "))
 
         elif select_input == 2:
-            accounts.change_account(change_value=int(input("Введите id аккаунта: ")), account_name=input(
+            accounts.change_account(change_value=int(input("Введите id аккаунта: ")),account_society=input("Введите вашу социльную сеть: "), account_name=input(
                 "Введите ваш никнейм: "), account_password=input("Введите ваш пароль: "))
 
         elif select_input == 3:
