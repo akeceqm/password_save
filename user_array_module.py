@@ -113,10 +113,8 @@ def user_logs_in_and_checks_database():
         if response == "y" or response == "n":
             if response == "y":
                 check_variant_user_login()
-
                 break
             else:
-
                 check_variant_register_user()
                 break
         else:
