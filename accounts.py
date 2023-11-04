@@ -14,6 +14,17 @@ id_generator = IdGenerator()
 
 
 def create_account(account_society, account_name, account_password):
+
+    account_id = id_generator.get_new_id()
+    global account_data
+    account_data = {
+        "society": account_society,
+        "username": account_name,
+        "password": account_password
+    }
+    
+    list_account[account_id] = account_data
+
     if account_society=="":
         while True:
             account_society=input("Введите вашу социльную сеть: ")
@@ -30,18 +41,7 @@ def create_account(account_society, account_name, account_password):
             account_password=input("Введите ваш пароль: ")
             if account_password!="":
                 break
-            
-    account_id = id_generator.get_new_id()
-    global account_data
-    account_data = {
-        "society": account_society,
-        "username": account_name,
-        "password": account_password
-    }
     
-            
-        
-    list_account[account_id] = account_data
 
 
 def change_account(change_value):
