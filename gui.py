@@ -17,7 +17,10 @@ while True:
         select_input = int(input("Ввод: "))
     else:
         if select_input == 1:
-            accounts.create_account(account_name=input("Введите ваш никнейм: "),
+            account_pass_check=""
+            accounts.create_account(account_society=input("Введите вашу социльную сеть: "),
+                                    account_name=input(
+                                        "Введите ваш никнейм: "),
                                     account_password=input("Введите ваш пароль: "))
 
         elif select_input == 2:

@@ -67,6 +67,7 @@ def check_variant_user_login():
     while True:
         if resp == "0":
             user_logs_in_and_checks_database()
+            break
         elif resp == "1":
             login_user(login=input("Введите логин: "),
                        password=input("Введите пароль: "))
@@ -90,6 +91,7 @@ def check_variant_register_user():
     while True:
         if resp == "0":
             user_logs_in_and_checks_database()
+            break
         elif resp == "1":
             register_user()
             break
@@ -120,6 +122,5 @@ def user_logs_in_and_checks_database():
         else:
             print("Введите корректный ответ!!!")
             response = input("Ваш ответ: ")
-
 
 user_logs_in_and_checks_database()
