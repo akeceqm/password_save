@@ -64,11 +64,14 @@ def del_account(account_id):
 
 
 def print_list():
-    print("\n Ваш список аккаунтов")
-    for account_id, account in list_account.items():
-        society = account["society"]
-        name = account ["username"]
-        password = account  ["password"]
-        
-        print(f"ID {account_id} |society: {society}| |name: {name}|: |password: {password}|")
+    if len(list_account)==0:
+        print("У вас отсутствуют аккаунты")
+    else:
+        print("\n Ваш список аккаунтов")
+        for account_id, account in list_account.items():
+            society = account["society"]
+            name = account ["username"]
+            password = account  ["password"]
+
+            print(f"ID {account_id} |society: {society}| |name: {name}|: |password: {password}|")
              
