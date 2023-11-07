@@ -34,5 +34,4 @@ while True:
     else:
         print("Вы вели не правильную команду!!!")
         print("Введите снова!!!")
-
         select_input = int(input("Ввод: "))

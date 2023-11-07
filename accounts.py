@@ -17,20 +17,8 @@ id_generator = IdGenerator()
 # Создание самого аккаунта
 def create_account(account_society, account_name, account_password):
 
-
     account_id = id_generator.get_new_id()
-    # Чтобы словарь можно было использовать в других def 
-    global account_data
-    account_data = {
-        "society": account_society,
-        "username": account_name,
-        "password": account_password
-    }
-    
-    list_account[account_id] = account_data
 
-    
-        
     # Проверка на пустые строки
     if account_society=="":
         while True:
@@ -48,8 +36,17 @@ def create_account(account_society, account_name, account_password):
             account_password=input("Введите ваш пароль: ")
             if account_password!="":
                 break
-    
 
+    # Чтобы словарь можно было использовать в других def 
+    global account_data
+    account_data = {
+        "society": account_society,
+        "username": account_name,
+        "password": account_password
+    }
+    
+    list_account[account_id] = account_data
+ 
 # Изменение аккаунта
 # Я не знаю, почему он токо после вводы данных говорит, что такого id нету
 def change_account(change_value,account_society,account_name,account_password):
@@ -87,5 +84,5 @@ def print_list():
             name = account ["username"]
             password = account  ["password"]
 
-            print(f"ID {account_id} |society: {society}| |name: {name}|: |password: {password}|")
+            print(f"ID {account_id} |society: {society}| |name: {name}| |password: {password}|")
              
