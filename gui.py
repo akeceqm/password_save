@@ -41,6 +41,7 @@ while True:
     # def изменения
     elif select_input == 2:
         change_value=int(input("Введите id аккаунта: "))
+
         if change_value not in list_account:
             print("Такого id не существует")
         else:
@@ -50,6 +51,7 @@ while True:
     # def удаления
     elif select_input == 3:
         account_id=int(input("Введите id аккаунта: "))
+        
         if account_id not in list_account:
             print("Такого id не существует")
         else:
