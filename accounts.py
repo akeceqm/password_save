@@ -18,25 +18,6 @@ id_generator = IdGenerator()
 def create_account(account_society, account_name, account_password):
 
     account_id = id_generator.get_new_id()
-
-    # Проверка на пустые строки
-    if account_society=="":
-        while True:
-            account_society=input("Введите вашу социльную сеть: ")
-            
-            if account_society!="":
-                break
-    if account_name=="":
-        while True:
-            account_name=input("Введите ваш никнейм: ")
-            if account_name!="":
-                break
-    if account_password=="":
-        while True:
-            account_password=input("Введите ваш пароль: ")
-            if account_password!="":
-                break
-
     # Чтобы словарь можно было использовать в других def 
     global account_data
     account_data = {
