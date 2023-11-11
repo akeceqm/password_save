@@ -31,26 +31,20 @@ def create_account(account_society, account_name, account_password):
 # Изменение аккаунта
 # Я не знаю, почему он токо после вводы данных говорит, что такого id нету
 def change_account(change_value,account_society,account_name,account_password):
-    if change_value not in list_account:
-        print("Такого id не существует")
-    else:
-        # Вот этот глобальный снова нужен, чтобы избежать ошибки
-        global account_data
-        account_id = change_value
-        list_account[account_id] = account_data
-        account = list_account[change_value]
-        account["society"] = account_society
-        account["username"] = account_name 
-        account["password"] = account_password
-        print(list_account)
+    # Вот этот глобальный снова нужен, чтобы избежать ошибки
+    global account_data
+    account_id = change_value
+    list_account[account_id] = account_data
+    account = list_account[change_value]
+    account["society"] = account_society
+    account["username"] = account_name 
+    account["password"] = account_password
+    print(list_account)
     
 
 # Удаляет аккаунт по id
 def del_account(account_id):
-    if account_id not in list_account:
-        print("Такого id не существует")
-    else:
-        del list_account[account_id]
+    del list_account[account_id]
     
 
 # Выводит сам словарь

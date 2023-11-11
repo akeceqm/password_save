@@ -1,4 +1,6 @@
 import accounts
+from accounts import list_account
+
 
 # Выводится после входа в аккаунт
 def variant_print():
@@ -38,12 +40,20 @@ while True:
                                 account_password)
     # def изменения
     elif select_input == 2:
-        accounts.change_account(change_value=int(input("Введите id аккаунта: ")),account_society=input("Введите вашу социльную сеть: "), account_name=input(
-            "Введите ваш никнейм: "), account_password=input("Введите ваш пароль: "))
+        change_value=int(input("Введите id аккаунта: "))
+        if change_value not in list_account:
+            print("Такого id не существует")
+        else:
+            accounts.change_account(change_value,account_society=input("Введите вашу социльную сеть: "), account_name=input(
+                "Введите ваш никнейм: "), account_password=input("Введите ваш пароль: "))
+        
     # def удаления
     elif select_input == 3:
-        accounts.del_account(account_id=int(
-            input("Введите id аккаунта: ")))
+        account_id=int(input("Введите id аккаунта: "))
+        if account_id not in list_account:
+            print("Такого id не существует")
+        else:
+            accounts.del_account(account_id)
     # Вывод словаря
     elif select_input == 4:
         accounts.print_list()
