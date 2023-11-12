@@ -62,27 +62,50 @@ def login_user(login, password):
 
 # def так тута намучился в самом начале.
 # Проверка на умение читать, что от тебя хотят
-def check_variant_user_login_register(bool):
+def check_variant_user_login():
     print("Вы уверены?\nЕсли хотите вернуться введите 0\nЕсли хотите продолжить то введите 1")
     resp = (input("Ввод: "))
-
     while True:
         if resp == "0":
             user_logs_in_and_checks_database()
             break
         elif resp == "1":
-            if bool == True:
-                login_user(login=input("Введите логин: "),
-                           password=input("Введите пароль: "))
-                break
-            elif bool == False:
-                register_user()
-                break
+            login_user(login=input("Введите логин: "),
+                       password=input("Введите пароль: "))
+            break
         else:
             print("Вы вели некоректный ввод")
             resp = (input("Ввод: "))
-            break
+            if resp == "0":
+                user_logs_in_and_checks_database()
+            elif resp == "1":
+                login_user(login=input("Введите логин: "),
+                           password=input("Введите пароль: "))
+                break
 
+# def так тута намучился в самом начале.
+# Проверка на умение читать, что от тебя хотят
+# ctrl+c and ctrl+v наше все
+def check_variant_register_user():
+    print("Вы уверены?\nЕсли хотите вернуться введите 0\nЕсли хотите продолжить то введите 1")
+    resp = (input("Ввод: "))
+    while True:
+        if resp == "0":
+            user_logs_in_and_checks_database()
+            break
+        elif resp == "1":
+            register_user()
+            break
+        
+        else:
+            print("Вы вели некоректный ввод")
+            resp = (input("Ввод: "))
+            if resp == "0":
+                user_logs_in_and_checks_database()
+            elif resp == "1":
+                register_user()
+                break
+        
 
 # def выбор на вход или же регистрацию 
 def user_logs_in_and_checks_database():
@@ -92,10 +115,10 @@ def user_logs_in_and_checks_database():
     while True:
         if response == "y" or response == "n":
             if response == "y":
-                check_variant_user_login_register(True)
+                check_variant_user_login()
                 break
             else:
-                check_variant_user_login_register(False)
+                check_variant_register_user()
                 break
         else:
             print("Введите корректный ответ!!!")
