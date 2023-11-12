@@ -105,7 +105,7 @@ def check_variant_register_user():
             elif resp == "1":
                 register_user()
                 break
-        
+         
 
 # def выбор на вход или же регистрацию 
 def user_logs_in_and_checks_database():
