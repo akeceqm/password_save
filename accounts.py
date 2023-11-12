@@ -1,3 +1,4 @@
+import python_db_sql
 # Здесь будут храниться аккаунты, которые добавил
 list_account = {}
 
@@ -16,7 +17,6 @@ id_generator = IdGenerator()
 
 # Создание самого аккаунта
 def create_account(account_society, account_name, account_password):
-
     account_id = id_generator.get_new_id()
     # Чтобы словарь можно было использовать в других def 
     global account_data
@@ -25,8 +25,8 @@ def create_account(account_society, account_name, account_password):
         "username": account_name,
         "password": account_password
     }
-    
     list_account[account_id] = account_data
+    python_db_sql.insert_into_db(account_society,account_name,account_password)
  
 # Изменение аккаунта
 # Я не знаю, почему он токо после вводы данных говорит, что такого id нету
@@ -49,10 +49,12 @@ def del_account(account_id):
 
 # Выводит сам словарь
 def print_list():
+    global society,name,password
     if len(list_account)==0:
         print("У вас отсутствуют аккаунты")
     else:
         print("Ваш список аккаунтов")
+        
         for account_id, account in list_account.items():
             # Создаем переменные и присваевываем значения из словаря
             society = account["society"]

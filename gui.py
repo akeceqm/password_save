@@ -1,7 +1,6 @@
 import accounts
 from accounts import list_account
 
-
 # Выводится после входа в аккаунт
 def variant_print():
     input_variant_print = int(input(
@@ -38,6 +37,7 @@ while True:
         accounts.create_account(account_society,
                                 account_name,
                                 account_password)
+        
     # def изменения
     elif select_input == 2:
         change_value=int(input("Введите id аккаунта: "))
